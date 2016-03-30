@@ -1,0 +1,11 @@
+﻿@model project.Models.Driver
+@{
+    ViewBag.Title = "AddRecord";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="/Home/AddRecord" method="post">
+    Name <input type="text" name="Name" />
+    <input type="submit" value="ADD" />
+
+</form>

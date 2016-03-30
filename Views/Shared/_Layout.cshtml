@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+  <html lang="en">
+   <head>
+
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>@ViewBag.Title</title>
+
+    <!-- Bootstrap -->
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="~/Scripts/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Scripts/css/style.css" rel="stylesheet" type="text/css" media="all" />
+       
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+   </head>
+  
+   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+       
+
+    <!-- ADDING NAVBAR -->
+
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+               <a class="navbar-brand" href=/Home/Index >AUDIT WHEEL</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("ABOUT","About","Home");</li>
+                    <li>@Html.ActionLink("SERVICES", "Services", "Home");</li>
+                    <li>@Html.ActionLink("DETAILS", "Enter", "Home");</li>
+                    
+                    @*<li><a href="#portfolio">PORTFOLIO</a></li>*@
+                    <li>@Html.ActionLink("PRICING", "Pricing", "Home");</li>
+                    <li>@Html.ActionLink("CONTACT", "Contact", "Home");</li>
+                    <li>@Html.ActionLink("CHECK", "CheckUser", "Home");</li>
+                    <li><a href=/Home/ShowEntities > ENTITIES</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+
+
+    </nav>
+
+
+
+
+    <!-- ADDING JUMBOTRON -->
+
+    <div class="jumbotron text-center">
+        <h1>AUDIT WHEEL</h1>
+        <p>We Always Keep An Eye On Your Vehicle</p>
+
+        <form class="form-inline">
+            <input type="email" class="form-control" size="50" placeholder="Email Address">
+            <button type="button" class="btn btn-danger">Subscribe</button>
+        </form>
+
+    </div>
+
+
+
+
+    @*<div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>*@
+
+    @RenderBody()
+
+
+       
+
+    <!-- ADDING FOOTER -->
+
+    <footer class="container-fluid text-center">
+        <a href="#myPage" title="To Top">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+        <p>All Copyrights Reserved <a href="" title="AUDIT WHEEL">www.auditwheel.com</a></p>
+    </footer>
+
+       
+       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+       <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+       <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+       <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+       <script src="~/Scripts/jquery-1.8.2.js"></script>
+       <!-- Include all compiled plugins (below), or include individual files as needed -->
+       <script src="~/Scripts/js/bootstrap.min.js"></script>
+
+    
+
+   </body>
+  </html>

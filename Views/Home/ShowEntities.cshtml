@@ -1,0 +1,85 @@
+﻿@model List<project.Models.Driver>
+@{
+    ViewBag.Title = "ShowEntities";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Drivers Details</h2>
+
+
+
+
+<div class="container">
+
+   
+   
+    <form action="/Home/ShowEntities/" method="post">
+        <input type="text" name="n" />
+        <input type="submit" class="btn-info" value="Search" />
+    </form>
+
+
+    @*<input type="text" id="s1"/>
+    <button id="bs1">Search</button>*@
+
+
+   
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>NAME</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var i in Model)
+                {
+
+                    <tr>
+                        <td>@i.Id</td>
+                        <td>@i.Name</td>
+
+                        <td><a href="/Home/Update/@i.Id">Update</a></td>
+                        <td><a href="/Home/Delete/@i.Id">Delete</a></td>
+                    </tr>
+
+
+
+                }
+
+            </tbody>
+
+        </table>
+
+        @*<div class="text-center">
+                <a href="/Home/Add/">ADD Driver</a>
+            </div>*@
+    </div> 
+
+<div class="text-center">
+    
+
+
+    <form action="/Home/Add/" method="post">
+
+           <input type="submit" class="btn-info" value="ADD" />
+     </form>
+
+
+
+</div>
+
+@*<script>
+    $('#bs1').click(function () {
+
+        $.getJSON("Home/show/?name=" + $('#s1').val(), function (data) {
+            if (data)
+            {
+                alert("data found");
+            }
+        });
+    })
+</script>*@
+    

@@ -1,0 +1,156 @@
+﻿@model project.Models.Vehicle
+
+
+
+
+@{
+   
+    ViewBag.Title = "Path";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+@*@Html.HiddenFor(model=>model.Latitude)
+@Html.HiddenFor(model=>model.Longitude)
+
+    <div>
+        <table>
+            <tr>
+                <td>@Model.Latitude</td>
+                <td>@Model.Longitude</td>
+                
+            </tr>
+        </table>
+    </div>
+
+   
+   
+
+   <!-- ADD GOOGLE MAPS -->
+<!-- Set height and width with CSS -->
+<div id="googleMap" style="height:400px;width:100%;"></div>
+
+<!-- Add Google Maps -->
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+
+<script type="text/javascript">
+    
+    var a = document.getElementById("Latitude");
+    var b = document.getElementById("Longitude");
+
+    var myCenter = new google.maps.LatLng(a.value, b.value);
+    
+    
+        
+  
+   
+       
+   
+    function initialize() {
+        var mapProp = {
+            center: myCenter,
+            zoom: 12,
+            scrollwheel: false,
+            draggable: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+        var marker = new google.maps.Marker({
+            position: myCenter,
+        });
+
+        marker.setMap(map);
+    }
+        
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+     
+    
+</script>*@
+
+
+
+<!--Route-->
+
+ <!-- ADD GOOGLE MAPS -->
+<!-- Set height and width with CSS -->
+<div id="googleMap" style="height:400px;width:100%;"></div>
+
+
+<!-- Add Google Maps -->
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<input type="button" id="routebtn" value="route" /> 
+
+<script type="text/javascript">
+
+    var a = document.getElementById("Latitude");
+    var b = document.getElementById("Longitude");
+
+    var myCenter = new google.maps.LatLng(31.5497, 74.3436);
+
+
+
+
+
+
+
+    function initialize() {
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        var mapProp = {
+            center: myCenter,
+            zoom: 12,
+            scrollwheel: false,
+            draggable: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+        var marker = new google.maps.Marker({
+            position: myCenter,
+        });
+
+        
+
+        marker.setMap(map);
+        google.maps.event.addDomListener(document.getElementById('routebtn'), 'click', calcRoute);
+        function calcRoute() {
+            var start = new google.maps.LatLng(31.5497, 74.3436);
+            //var end = new google.maps.LatLng(38.334818, -181.884886);
+            var end = new google.maps.LatLng(32.100242, 74.873421);
+
+
+            var request = {
+                origin: start,
+                destination: end,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                    directionsDisplay.setMap(map);
+                } else {
+                    alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status);
+                }
+            });
+        }
+    }
+
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+</script>
+
+
+

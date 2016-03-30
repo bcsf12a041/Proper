@@ -1,0 +1,10 @@
+﻿@model project.Models.Driver
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="/Home/UpdateConfirm/@Model.Id" method="post">
+  Name  <input type="text" name="t1" value="@Model.Name"/>
+  <input type="submit" value="Update" />
+</form>

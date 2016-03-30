@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Enter";
+    Layout="~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    @*@Html.BeginForm("ShowInfo", "Home", FormMethod.Post)
+        {
+        @Html.Label("Latitude")
+        @Html.TextBoxFor(m => m.Latitude)
+        @Html.Label("Longitude")
+        @Html.TextBoxFor(m => m.Longitude)
+
+        <input type="submit" value="Enter" />
+
+        }*@
+
+    <form action="/Home/ShowDetails" method="post">
+        Latitude :<input type="text" name="Latitude" />
+        Longitude :<input type="text" name="Longitude" />
+        <input type="submit" value="Enter" />
+    </form>
+    <br />
+</div>
+

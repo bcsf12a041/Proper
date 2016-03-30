@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "CheckUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CheckUser</h2>
+Name <input type="text" id="name" />
+Email <input type="text" id="email" />
+<p id="msg"></p>
+
+@Scripts.Render("~/bundles/jquery");
+
+<script>
+    $(document).ready(f);
+
+    function f() { $('#name').blur(f1); }
+
+    function f1() {
+                $.getJSON('/Home/Check', { 'n': $('#name').val() }, function (data) {
+                    if (data == true) {
+                        $('#msg').html("Available");
+                    }
+                    else {
+                        $('#msg').html("Email Not Available");
+                    }
+                });
+
+                
+    }
+       
+</script>
